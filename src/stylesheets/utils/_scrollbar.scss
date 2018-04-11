@@ -1,0 +1,27 @@
+$scrollbarWidth: 4px;
+$scrollbarTrackBorderRadius: 2px;
+$scrollbarButtonHeight: 4px;
+
+.scrollbar-border-right {
+    border-right: 4px solid rgba(0, 0, 0, 0.0) !important;
+}
+
+::-webkit-scrollbar {
+    width: $scrollbarWidth;
+}
+
+::-webkit-scrollbar-track {
+    @include border-radius($scrollbarTrackBorderRadius);
+}
+
+::-webkit-scrollbar-button {
+    height: $scrollbarButtonHeight;
+}
+
+::-webkit-scrollbar-thumb {
+    @include border-radius($scrollbarTrackBorderRadius);
+    background: rgba(0,0,0,0.15);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.1);
+}

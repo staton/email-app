@@ -1,0 +1,10 @@
+$height: 1px;
+
+.EmailTableItemSeparator {
+    width: 100%;
+    background-color: $separator-color;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: $height;
+}

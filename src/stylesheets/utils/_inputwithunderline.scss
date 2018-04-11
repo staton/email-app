@@ -1,0 +1,39 @@
+$inputUnderlineHeight: 2px;
+$inputUnderlineWidth: 100%;
+$inputUnderlineZIndex: 9;
+$inputUnderlineTransitionSpeed: .333s;
+
+.input-with-underline {
+    font-size: $input-font-size;
+    
+    &:focus {
+        outline: none;
+    }
+
+    &:focus + .input-underline {
+        width: $inputUnderlineWidth;
+        background-color: $accent-color;
+    }
+}
+
+& .input-underline {
+    z-index: $inputUnderlineZIndex;
+    height: $inputUnderlineHeight;
+    width: 0; /* initially set to 0. Will expand when focused */
+    background-color: $accent-color;
+    transition: width $inputUnderlineTransitionSpeed ease-in-out;
+
+    &.error-underline {
+        background-color: $error-color !important;
+    }
+}
+
+& .input-underline-hr {
+    margin: 0;
+    z-index: $inputUnderlineZIndex - 1;
+    margin-top: -1px;
+    border: none;
+    background-color: $accent-color-inactive;
+    padding: 0;
+    width: $inputUnderlineWidth;
+}

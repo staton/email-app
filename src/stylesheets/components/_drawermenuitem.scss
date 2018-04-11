@@ -1,0 +1,22 @@
+$padding: 1em;
+
+.DrawerMenuItem {
+    cursor: pointer;
+
+    &:hover {
+        background-color: $menu-overlay-color;
+    }
+
+    & a {
+        text-decoration: none;
+        color: $menu-link-color;
+
+        &:visited {
+            color: inherit;
+        }
+    }
+
+    & .link-container {
+        padding: $padding;
+    }
+}

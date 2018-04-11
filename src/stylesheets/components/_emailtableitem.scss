@@ -1,0 +1,100 @@
+$checkbox-visibility-default: hidden;
+$checkbox-visibility-default-mobile: visible;
+$checkbox-visibility-row-hovered: visible;
+$checkbox-visibility-checked: visible;
+$checkbox-container-padding-right: $email-table-row-padding;
+$checkbox-container-padding-right-mobile: $email-table-row-padding-mobile;
+$left-side-items-width: 70%;
+$email-info-width: 100%;
+$email-from-width: 25%;
+$email-subject-width: $email-info-width - $email-from-width;
+
+.EmailTableItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: $email-table-row-padding;
+
+    &:hover {
+        background-color: $email-item-overlay-color;
+        cursor: pointer;
+
+        & .left-side-items {
+
+            & .checkbox-container {
+
+                & .Checkbox {
+                    visibility: $checkbox-visibility-row-hovered;
+                }
+            }
+        }
+    }
+
+    & .left-side-items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: $left-side-items-width;
+    
+        & .checkbox-container {
+            padding-right: $checkbox-container-padding-right;
+
+            & .Checkbox {
+                visibility: $checkbox-visibility-default;
+
+                &:checked {
+                    visibility: $checkbox-visibility-checked;
+                }
+            }
+        }
+
+        & .email-info {
+            display: flex;
+            flex-direction: row;
+            width: $email-info-width;
+
+            & .email-from {
+                width: $email-from-width;
+                word-wrap: none;
+                word-break: none;
+            }
+
+            & .email-subject {
+                word-wrap: none;
+                word-break: none;
+            }
+        }
+    }
+
+    & .right-side-items {
+        display: flex;
+        flex-direction: row;
+
+        & .email-date {
+
+        }
+    }
+}
+
+@include media($mobile-media) {
+    
+    .EmailTableItem {
+        padding: $email-table-row-padding-mobile;
+
+        & .left-side-items {
+
+            & .checkbox-container {
+                padding-right: $checkbox-container-padding-right-mobile;
+
+                & .Checkbox {
+                    visibility: $checkbox-visibility-default-mobile;
+                }
+            }
+        
+            & .email-info {
+                flex-direction: column;
+            }
+        }
+    }
+}

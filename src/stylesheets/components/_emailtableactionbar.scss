@@ -1,0 +1,30 @@
+$checkbox-container-padding-right: $email-table-row-padding;
+$checkbox-container-padding-right-mobile: $email-table-row-padding-mobile;
+
+.EmailTableActionBar {
+    padding: $email-table-row-padding;
+
+    & .checkbox-container {
+
+        & .Checkbox {
+            padding-right: $checkbox-container-padding-right;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@include media($mobile-media) {
+    .EmailTableActionBar {
+        padding: $email-table-row-padding-mobile;
+
+        & .checkbox-container {
+    
+            & .Checkbox {
+                padding-right: $checkbox-container-padding-right-mobile;
+            }
+        }
+    }
+}

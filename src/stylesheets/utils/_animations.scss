@@ -1,0 +1,45 @@
+$slideUpAnimationName: slideUp;
+$fadeInAnimationName: fadeIn;
+$fadeOutAnimationName: fadeOut;
+$slideFromTopAnimationName: slideFromTop;
+
+$slideUpAnimation: $slideUpAnimationName .5s ease-in-out;
+$fadeInAnimation: $fadeInAnimationName .5s;
+$fadeOutAnimation: $fadeOutAnimationName .25s;
+$slideFromTopAnimation: $slideFromTopAnimationName .75s ease 1;
+
+@include keyframes($slideUpAnimationName) {
+    from { height: 0; opacity: 0; }
+    to { height: 100%; opacity: 1; }
+}
+
+@include keyframes($fadeInAnimationName) {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@include keyframes($fadeOutAnimationName) {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@include keyframes($slideFromTopAnimationName) {
+    0% { -webkit-transform: translateY(-3em); }
+    100% { -webkit-transform: translateY(0em); }
+}
+
+.slide-up {
+    @include animation($slideUpAnimation);
+}
+
+.fade-in {
+    @include animation($fadeInAnimation);
+}
+
+.fade-out {
+    @include animation($fadeOutAnimation);
+}
+
+.slide-from-top {
+    @include animation($slideFromTopAnimation);
+}

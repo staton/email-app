@@ -1,0 +1,457 @@
+#root .ActionButton {
+  -webkit-box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.35);
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  border-radius: 0.2em;
+  padding: 0.667em 0;
+  background: #14d371;
+  color: white;
+  font-size: 0.95em;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer; }
+  #root .ActionButton:hover {
+    background-color: #2feb8b; }
+
+#root .App {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  #root .App .app-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%; }
+
+#root .Checkbox:hover {
+  cursor: inherit; }
+
+#root .Drawer .side-bar {
+  -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  position: relative;
+  background-color: white;
+  height: 100%;
+  width: 240px;
+  overflow: hidden; }
+  #root .Drawer .side-bar .side-bar-container {
+    min-width: 240px;
+    display: flex;
+    flex-direction: column; }
+  #root .Drawer .side-bar .new-email-button-container {
+    padding: 1em; }
+    #root .Drawer .side-bar .new-email-button-container .ActionButton {
+      width: 100%; }
+
+@media (max-device-width: 1023px) {
+  #root .Drawer .side-bar {
+    z-index: 16;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 275px; }
+    #root .Drawer .side-bar .side-bar-container {
+      min-width: 275px; }
+  #root .Drawer .overlay {
+    z-index: 15;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); } }
+
+#root .DrawerMenu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+#root .DrawerMenuItem {
+  cursor: pointer; }
+  #root .DrawerMenuItem:hover {
+    background-color: rgba(0, 0, 0, 0.15); }
+  #root .DrawerMenuItem a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87); }
+    #root .DrawerMenuItem a:visited {
+      color: inherit; }
+  #root .DrawerMenuItem .link-container {
+    padding: 1em; }
+
+#root .EmailTable {
+  width: 100%;
+  height: 100%;
+  overflow-y: overlay; }
+
+#root .EmailTableActionBar {
+  padding: 1.25em; }
+  #root .EmailTableActionBar .checkbox-container .Checkbox {
+    padding-right: 1.25em; }
+    #root .EmailTableActionBar .checkbox-container .Checkbox:hover {
+      cursor: pointer; }
+
+@media (max-device-width: 1023px) {
+  #root .EmailTableActionBar {
+    padding: 1em; }
+    #root .EmailTableActionBar .checkbox-container .Checkbox {
+      padding-right: 1em; } }
+
+#root .EmailTableItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25em; }
+  #root .EmailTableItem:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+    cursor: pointer; }
+    #root .EmailTableItem:hover .left-side-items .checkbox-container .Checkbox {
+      visibility: visible; }
+  #root .EmailTableItem .left-side-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%; }
+    #root .EmailTableItem .left-side-items .checkbox-container {
+      padding-right: 1.25em; }
+      #root .EmailTableItem .left-side-items .checkbox-container .Checkbox {
+        visibility: hidden; }
+        #root .EmailTableItem .left-side-items .checkbox-container .Checkbox:checked {
+          visibility: visible; }
+    #root .EmailTableItem .left-side-items .email-info {
+      display: flex;
+      flex-direction: row;
+      width: 100%; }
+      #root .EmailTableItem .left-side-items .email-info .email-from {
+        width: 25%;
+        word-wrap: none;
+        word-break: none; }
+      #root .EmailTableItem .left-side-items .email-info .email-subject {
+        word-wrap: none;
+        word-break: none; }
+  #root .EmailTableItem .right-side-items {
+    display: flex;
+    flex-direction: row; }
+
+@media (max-device-width: 1023px) {
+  #root .EmailTableItem {
+    padding: 1em; }
+    #root .EmailTableItem .left-side-items .checkbox-container {
+      padding-right: 1em; }
+      #root .EmailTableItem .left-side-items .checkbox-container .Checkbox {
+        visibility: visible; }
+    #root .EmailTableItem .left-side-items .email-info {
+      flex-direction: column; } }
+
+#root .EmailTableItemSeparator {
+  width: 100%;
+  background-color: #e1e1ff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 1px; }
+
+#root .NavBar {
+  -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 12;
+  padding: 0 12px;
+  background-color: #ebebeb;
+  height: 72px;
+  max-height: 72px; }
+
+@media (max-device-width: 1023px) {
+  #root .NavBar {
+    height: 56px !important; } }
+
+#root .NavBarButton {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer; }
+
+@-webkit-keyframes slideUp {
+  from {
+    height: 0;
+    opacity: 0; }
+  to {
+    height: 100%;
+    opacity: 1; } }
+
+@-moz-keyframes slideUp {
+  from {
+    height: 0;
+    opacity: 0; }
+  to {
+    height: 100%;
+    opacity: 1; } }
+
+@-ms-keyframes slideUp {
+  #root from {
+    height: 0;
+    opacity: 0; }
+  #root to {
+    height: 100%;
+    opacity: 1; } }
+
+@-o-keyframes slideUp {
+  from {
+    height: 0;
+    opacity: 0; }
+  to {
+    height: 100%;
+    opacity: 1; } }
+
+@keyframes slideUp {
+  from {
+    height: 0;
+    opacity: 0; }
+  to {
+    height: 100%;
+    opacity: 1; } }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-ms-keyframes fadeIn {
+  #root from {
+    opacity: 0; }
+  #root to {
+    opacity: 1; } }
+
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-moz-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-ms-keyframes fadeOut {
+  #root from {
+    opacity: 1; }
+  #root to {
+    opacity: 0; } }
+
+@-o-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-webkit-keyframes slideFromTop {
+  0% {
+    -webkit-transform: translateY(-3em); }
+  100% {
+    -webkit-transform: translateY(0em); } }
+
+@-moz-keyframes slideFromTop {
+  0% {
+    -webkit-transform: translateY(-3em); }
+  100% {
+    -webkit-transform: translateY(0em); } }
+
+@-ms-keyframes slideFromTop {
+  #root 0% {
+    -webkit-transform: translateY(-3em); }
+  #root 100% {
+    -webkit-transform: translateY(0em); } }
+
+@-o-keyframes slideFromTop {
+  0% {
+    -webkit-transform: translateY(-3em); }
+  100% {
+    -webkit-transform: translateY(0em); } }
+
+@keyframes slideFromTop {
+  0% {
+    -webkit-transform: translateY(-3em); }
+  100% {
+    -webkit-transform: translateY(0em); } }
+
+#root .slide-up {
+  -webkit-animation: slideUp 0.5s ease-in-out;
+  -moz-animation: slideUp 0.5s ease-in-out;
+  animation: slideUp 0.5s ease-in-out; }
+
+#root .fade-in {
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s; }
+
+#root .fade-out {
+  -webkit-animation: fadeOut 0.25s;
+  -moz-animation: fadeOut 0.25s;
+  animation: fadeOut 0.25s; }
+
+#root .slide-from-top {
+  -webkit-animation: slideFromTop 0.75s ease 1;
+  -moz-animation: slideFromTop 0.75s ease 1;
+  animation: slideFromTop 0.75s ease 1; }
+
+#root *::-webkit-input-placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root *:-moz-placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root *::-moz-placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root *:-ms-input-placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root *::-ms-input-placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root *::placeholder {
+  font-size: 1em;
+  color: #e3e3e3;
+  transition: color 0.25s linear; }
+
+#root input:focus::-webkit-input-placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root input:focus:-moz-placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root input:focus::-moz-placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root input:focus:-ms-input-placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root input:focus::-ms-input-placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root input:focus::placeholder {
+  font-size: 1em;
+  color: #f2f2f2; }
+
+#root .input-with-underline {
+  font-size: 1.01em; }
+  #root .input-with-underline:focus {
+    outline: none; }
+  #root .input-with-underline:focus + .input-underline {
+    width: 100%;
+    background-color: #14d371; }
+
+#root .input-underline {
+  z-index: 9;
+  height: 2px;
+  width: 0;
+  /* initially set to 0. Will expand when focused */
+  background-color: #14d371;
+  transition: width 0.333s ease-in-out; }
+  #root .input-underline.error-underline {
+    background-color: #cc3333 !important; }
+
+#root .input-underline-hr {
+  margin: 0;
+  z-index: 8;
+  margin-top: -1px;
+  border: none;
+  background-color: #e3e3e3;
+  padding: 0;
+  width: 100%; }
+
+#root .scrollbar-border-right {
+  border-right: 4px solid transparent !important; }
+
+#root ::-webkit-scrollbar {
+  width: 4px; }
+
+#root ::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px; }
+
+#root ::-webkit-scrollbar-button {
+  height: 4px; }
+
+#root ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.15); }
+
+#root ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.1); }
+
+#root .basic-ease-out {
+  -webkit-transition: all 0.333s ease-out;
+  -moz-transition: all 0.333s ease-out;
+  -o-transition: all 0.333s ease-out;
+  transition: all 0.333s ease-out; }
+
+#root .basic-ease-out-fast {
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out; }

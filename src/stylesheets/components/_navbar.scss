@@ -1,0 +1,25 @@
+$z-index: 12;
+$side-padding: 12px;
+$height: 72px;
+$mobile-height: 56px;
+$box-shadow: 0 0 .5em 0 $shadow-color;
+
+.NavBar {
+    @include box-shadow($box-shadow);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: $z-index;
+    padding: 0 $side-padding;
+    background-color: $header-color;
+    height: $height;
+    max-height: $height;
+}
+
+@include media($mobile-media) {
+    
+    .NavBar {
+        height: $mobile-height !important;
+        $max-height: $mobile-height !important;
+    }
+}

@@ -1,0 +1,58 @@
+$inputColorTransitionSpeed: .25s;
+$fontSize: 1em;
+
+*::-webkit-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+*:-moz-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+*::-moz-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+*:-ms-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+*::-ms-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+*::placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-color;
+    transition: color $inputColorTransitionSpeed linear;
+}
+
+input:focus::-webkit-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}
+input:focus:-moz-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}
+input:focus::-moz-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}
+input:focus:-ms-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}
+input:focus::-ms-input-placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}
+input:focus::placeholder {
+    font-size: $fontSize;
+    color: $input-placeholder-focus-color;
+}

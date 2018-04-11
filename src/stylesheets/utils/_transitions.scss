@@ -1,0 +1,10 @@
+$basicEaseOutTransition: all .333s ease-out;
+$basicEaseOutFastTransition: all .15s ease-out;
+
+.basic-ease-out {
+    @include transition($basicEaseOutTransition);
+}
+
+.basic-ease-out-fast {
+    @include transition($basicEaseOutFastTransition);
+}
