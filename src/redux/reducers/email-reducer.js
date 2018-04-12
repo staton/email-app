@@ -22,40 +22,7 @@ var _ = require('lodash');
 
 // to do: set emails to empty, and load from mock api
 const INITIAL_STATE = {
-    emails: [
-        new Email(
-            1,
-            USER_EMAIL, 
-            'from@xyz.com', 
-            null, 
-            null, 
-            'hello', 
-            'how are you', 
-            153456789088,
-            false),
-        new Email(
-            2,
-            'bob@gmail.com', 
-            USER_EMAIL, 
-            null, 
-            null, 
-            'hi', 
-            'look at this', 
-            153456789055,
-            false,
-            false,
-            true),
-        new Email(
-            3,
-            USER_EMAIL, 
-            'from@xyz.com', 
-            null, 
-            null, 
-            'big news', 
-            'big news....', 
-            153456789041,
-            false)
-    ],
+    emails: [],
     selectedEmails: [],
     isSelectAllChecked: false,
     count: {
@@ -134,7 +101,7 @@ function addEmails(state, payload) {
 
     return {
         ...state,
-        emails: emails
+        emails: _.sortBy(emails, x => x.getTimestampUTC()).reverse()
     };
 }
 

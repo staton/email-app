@@ -52,6 +52,8 @@ export default class Email {
         var _isSpam = isSpam;
         var _deletionTimestampUTC = deletionTimestampUTC;
 
+        var _prettyDate = new Date(_timestampUTC).toLocaleDateString();
+
         this.getId = () => _id;
         this.getTo = () => _to;
         this.getFrom = () => _from;
@@ -100,6 +102,7 @@ export default class Email {
                 && !_isSent;
         };
 
+        this.getPrettyDate = () => _prettyDate;
     }
     
 }

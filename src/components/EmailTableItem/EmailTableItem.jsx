@@ -37,7 +37,7 @@ class EmailTableItem extends React.Component {
 
     render() {
         return (
-            <div className="EmailTableItem  basic-ease-out-fast">
+            <div className="EmailTableItem basic-ease-out-fast">
                 <div className="left-side-items">
                     <div className="checkbox-container">
                         <Checkbox 
@@ -55,7 +55,7 @@ class EmailTableItem extends React.Component {
                 </div>
                 <div className="right-side-items">
                     <div className="email-date">
-                        {this.props.email.getTimestampUTC()}
+                        {this.props.email.getPrettyDate()}
                     </div>
                 </div>
             </div>

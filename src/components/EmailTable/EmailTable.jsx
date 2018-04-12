@@ -5,10 +5,10 @@ import {connect} from 'react-redux';
 import EmailTableActionBar from '../EmailTableActionBar/EmailTableActionBar';
 import EmailTableItem from '../EmailTableItem/EmailTableItem';
 import EmailTableItemSeparator from '../EmailTableItemSeparator/EmailTableItemSeparator';
-import * as EmailActions from '../../redux/actions/email-actions';
+import {selectEmails} from '../../redux/actions/email-actions';
 import {
-    USER_EMAIL, 
-    INBOX, DRAFTS, 
+    INBOX, 
+    DRAFTS, 
     SENT, 
     SPAM, 
     TRASH
@@ -20,12 +20,12 @@ const propTypes = {
     page: PropTypes.string.isRequired
 };
 
-class EmailTable extends React.Component {
+export class EmailTable extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.page !== this.props.page) {
             // new page, so unselect previous emails
-            this.props.selectEmail([], false, true);
+            this.props.selectEmails([], false, true);
         }
     }
 
@@ -67,7 +67,6 @@ class EmailTable extends React.Component {
      * @returns The list of EmailTableItems.
      */
     getEmailItems(emails) {
-
         return (emails)
             ? emails.map((email) => {
                 return (
@@ -82,7 +81,7 @@ class EmailTable extends React.Component {
 
     render() {
         let emails = this.getEmails();
-
+        
         return (
             <div className="EmailTable">
                 <EmailTableActionBar emails={emails} />
@@ -98,13 +97,14 @@ EmailTable.propTypes = propTypes;
 
 function mapStateToProps(store, ownProps) {
     return {
-        emails: store.email.emails
+        emails: store.email.emails,
+        page: ownProps.page
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-            selectEmail: EmailActions.selectEmails
+            selectEmails: selectEmails
         },
         dispatch);
 }

@@ -2,11 +2,13 @@ $slideUpAnimationName: slideUp;
 $fadeInAnimationName: fadeIn;
 $fadeOutAnimationName: fadeOut;
 $slideFromTopAnimationName: slideFromTop;
+$slideFromRightAnimationName: slideFromRight;
 
 $slideUpAnimation: $slideUpAnimationName .5s ease-in-out;
 $fadeInAnimation: $fadeInAnimationName .5s;
 $fadeOutAnimation: $fadeOutAnimationName .25s;
 $slideFromTopAnimation: $slideFromTopAnimationName .75s ease 1;
+$slideFromRightAnimation: $slideFromRightAnimationName .75 ease 1;
 
 @include keyframes($slideUpAnimationName) {
     from { height: 0; opacity: 0; }
@@ -28,6 +30,11 @@ $slideFromTopAnimation: $slideFromTopAnimationName .75s ease 1;
     100% { -webkit-transform: translateY(0em); }
 }
 
+@include keyframes($slideFromRightAnimationName) {
+    0% { -webkit-transform: translateX(3em); }
+    100% { -webkit-transform: translateX(0em); }
+}
+
 .slide-up {
     @include animation($slideUpAnimation);
 }
@@ -42,4 +49,8 @@ $slideFromTopAnimation: $slideFromTopAnimationName .75s ease 1;
 
 .slide-from-top {
     @include animation($slideFromTopAnimation);
+}
+
+.slide-from-right {
+    @include animation($slideFromRightAnimation);
 }
