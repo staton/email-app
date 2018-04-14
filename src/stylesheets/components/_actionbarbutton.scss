@@ -1,10 +1,12 @@
 $action-bar-button-padding: .5em;
+$button-font-weight: 700;
 
 .ActionBarButton {
     padding: $action-bar-button-padding;
     background: none;
     color: rgba($action-bar-button-color, .33);
     border: none;
+    font-weight: $button-font-weight;
 
     &:enabled {
         color: $action-bar-button-color;

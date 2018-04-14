@@ -2,7 +2,8 @@
   padding: 0.5em;
   background: none;
   color: rgba(0, 0, 0, 0.33);
-  border: none; }
+  border: none;
+  font-weight: 700; }
   #root .ActionBarButton:enabled {
     color: rgba(0, 0, 0, 0.63); }
   #root .ActionBarButton:hover:enabled {

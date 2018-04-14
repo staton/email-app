@@ -4,3 +4,7 @@ export const DRAFTS = 'drafts';
 export const SENT = 'sent';
 export const SPAM = 'spam';
 export const TRASH = 'trash';
+export const ACTION_BAR_BUTTON_SPAM = "Mark as Spam";
+export const ACTION_BAR_BUTTON_NOT_SPAM = "Not Spam";
+export const ACTION_BAR_BUTTON_DELETE = "Delete";
+export const ACTION_BAR_BUTTON_RESTORE = "Restore";

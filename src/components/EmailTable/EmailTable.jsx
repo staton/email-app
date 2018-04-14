@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 import {
     MdDelete, 
     MdDeleteForever, 
-    MdReportProblem, 
-    MdBeenhere,
+    MdReportProblem,
     MdUndo
 } from 'react-icons/lib/md';
 import EmailTableActionBar from '../EmailTableActionBar/EmailTableActionBar';
@@ -19,7 +18,11 @@ import {
     DRAFTS, 
     SENT, 
     SPAM, 
-    TRASH
+    TRASH,
+    ACTION_BAR_BUTTON_DELETE,
+    ACTION_BAR_BUTTON_RESTORE,
+    ACTION_BAR_BUTTON_SPAM,
+    ACTION_BAR_BUTTON_NOT_SPAM
 } from '../../constants/strings';
 
 var _ = require('lodash');
@@ -80,6 +83,7 @@ export class EmailTable extends React.Component {
         let obj;
         let isActionBarButtonEnabled = this.props.selectedEmails.length > 0;
         let i = 0;
+        let iconSize = 20;
 
         switch (this.props.page) {
             case INBOX:
@@ -88,15 +92,15 @@ export class EmailTable extends React.Component {
                     actionBarButtons: [
                         <ActionBarButton
                             key={i++}
-                            icon={<MdDelete size={24} />}
-                            text="DELETE"
+                            icon={<MdDelete size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_DELETE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={(e) => this.handleMarkAsDeletedButtonClicked(e, true)}
                         />,
                         <ActionBarButton
                             key={i++}
-                            icon={<MdReportProblem size={24} />}
-                            text="MARK AS SPAM" 
+                            icon={<MdReportProblem size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_SPAM}
                             isEnabled={isActionBarButtonEnabled}
                             onClick={(e) => this.handleMarkAsSpamButtonClicked(e, true)}
                         />
@@ -109,8 +113,8 @@ export class EmailTable extends React.Component {
                     actionBarButtons: [
                         <ActionBarButton
                             key={i++}
-                            icon={<MdDeleteForever size={24} />}
-                            text="DELETE"
+                            icon={<MdDeleteForever size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_DELETE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={this.handlePermanentlyDeleteButtonClicked}
                         />
@@ -123,8 +127,8 @@ export class EmailTable extends React.Component {
                     actionBarButtons: [
                         <ActionBarButton
                             key={i++}
-                            icon={<MdDeleteForever size={24} />}
-                            text="DELETE"
+                            icon={<MdDeleteForever size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_DELETE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={this.handlePermanentlyDeleteButtonClicked}
                         />
@@ -137,15 +141,15 @@ export class EmailTable extends React.Component {
                     actionBarButtons: [
                         <ActionBarButton
                             key={i++}
-                            icon={<MdDeleteForever size={24} />}
-                            text="DELETE"
+                            icon={<MdDeleteForever size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_DELETE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={this.handlePermanentlyDeleteButtonClicked}
                         />,
                         <ActionBarButton
                             key={i++}
-                            icon={<MdBeenhere size={24} />}
-                            text="NOT SPAM" 
+                            icon={<MdUndo size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_NOT_SPAM} 
                             isEnabled={isActionBarButtonEnabled}
                             onClick={(e) => this.handleMarkAsSpamButtonClicked(e, false)}
                         />
@@ -158,15 +162,15 @@ export class EmailTable extends React.Component {
                     actionBarButtons: [
                         <ActionBarButton
                             key={i++}
-                            icon={<MdDeleteForever size={24} />}
-                            text="DELETE"
+                            icon={<MdDeleteForever size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_DELETE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={this.handlePermanentlyDeleteButtonClicked}
                         />,
                         <ActionBarButton
                             key={i++}
-                            icon={<MdUndo size={24} />}
-                            text="RESTORE"
+                            icon={<MdUndo size={iconSize} />}
+                            text={ACTION_BAR_BUTTON_RESTORE}
                             isEnabled={isActionBarButtonEnabled} 
                             onClick={(e) => this.handleMarkAsDeletedButtonClicked(e, false)}
                         />
