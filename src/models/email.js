@@ -90,12 +90,11 @@ export default class Email {
         };
 
         this.getDeletionTimestampUTC = () => _deletionTimestampUTC;
-        this.setDeletionTimestampUTC = (deletionTimeStampUTC) => {
+        this.setDeletionTimestampUTC = (deletionTimestampUTC) => {
             _deletionTimestampUTC = deletionTimestampUTC;
         };
 
         this.isInInbox = () => {
-            console.log('isInInbox called');
             return !_isDraft
                 && !_isSpam
                 && !_deletionTimestampUTC

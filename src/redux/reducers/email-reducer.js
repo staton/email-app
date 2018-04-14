@@ -117,17 +117,21 @@ function markAsDeleted(state, payload) {
         ? Date.now()
         : null;
 
-    let emails = _.union(state.emails.slice(), payload.emails);
-    console.log(emails);
-    
-    for (let i = 0; i < emails.length; i++) {
-        emails[i].setDeletionTimestampUTC(deletionTime);
-        console.log(emails[i].getDeletionTimestampUTC());
+    // TODO: optimize this function
+    let allEmails = state.emails.slice();
+    let selectedEmails = payload.emails.slice();
+
+    for (let i = 0; i < selectedEmails.length; i++) {
+        let email = _.find(allEmails, x => x.getId() == selectedEmails[i].getId());
+
+        if (email) {
+            email.setDeletionTimestampUTC(deletionTime);
+        }
     }
 
     return {
         ...state,
-        emails: emails,
+        emails: allEmails,
         selectedEmails: []
     };
 }
@@ -139,7 +143,24 @@ function markAsDeleted(state, payload) {
  * @returns {object} The new state.
  */
 function markAsImportant(state, payload) {
-    return state;
+    
+    // TODO: optimize this function
+    let allEmails = state.emails.slice();
+    let selectedEmails = payload.emails.slice();
+
+    for (let i = 0; i < selectedEmails.length; i++) {
+        let email = _.find(allEmails, x => x.getId() == selectedEmails[i].getId());
+
+        if (email) {
+            email.setIsImportant(payload.isImportant);
+        }
+    }
+
+    return {
+        ...state,
+        emails: allEmails,
+        selectedEmails: []
+    };
 }
 
 /**
@@ -149,7 +170,24 @@ function markAsImportant(state, payload) {
  * @returns {object} The new state.
  */
 function markAsRead(state, payload) {
-    return state;
+
+    // TODO: optimize this function
+    let allEmails = state.emails.slice();
+    let selectedEmails = payload.emails.slice();
+
+    for (let i = 0; i < selectedEmails.length; i++) {
+        let email = _.find(allEmails, x => x.getId() == selectedEmails[i].getId());
+
+        if (email) {
+            email.setIsRead(payload.isRead);
+        }
+    }
+
+    return {
+        ...state,
+        emails: allEmails,
+        selectedEmails: []
+    };
 }
 
 /**
@@ -159,7 +197,24 @@ function markAsRead(state, payload) {
  * @returns {object} The new state.
  */
 function markAsSpam(state, payload) {
-    return state;
+
+    // TODO: optimize this function
+    let allEmails = state.emails.slice();
+    let selectedEmails = payload.emails.slice();
+
+    for (let i = 0; i < selectedEmails.length; i++) {
+        let email = _.find(allEmails, x => x.getId() == selectedEmails[i].getId());
+
+        if (email) {
+            email.setIsSpam(payload.isSpam);
+        }
+    }
+
+    return {
+        ...state,
+        emails: allEmails,
+        selectedEmails: []
+    };
 }
 
 /**

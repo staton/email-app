@@ -5,13 +5,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import ActionBar from '../ActionBar/ActionBar';
 import Checkbox from '../Checkbox/Checkbox';
-import ActionBarButton from '../ActionBarButton/ActionBarButton';
-import {MdDelete, MdReportProblem} from 'react-icons/lib/md';
-import * as EmailActions from '../../redux/actions/email-actions';
+import {selectEmails, markAsDeleted, markAsSpam} from '../../redux/actions/email-actions';
 import Email from '../../models/email';
 
 const propTypes = {
-    emails: PropTypes.arrayOf(PropTypes.instanceOf(Email)).isRequired
+    emails: PropTypes.arrayOf(PropTypes.instanceOf(Email)).isRequired,
+    actionBarButtons: PropTypes.arrayOf(PropTypes.element)
+};
+
+const defaultProps = {
+    actionBarButtons: null
 };
 
 export class EmailTableActionBar extends React.Component {
@@ -20,8 +23,6 @@ export class EmailTableActionBar extends React.Component {
         super();
 
         this.handleSelectAllChecked = this.handleSelectAllChecked.bind(this);
-        this.handleDeleteButtonClicked = this.handleDeleteButtonClicked.bind(this);
-        this.handleMarkAsSpamButtonClicked = this.handleMarkAsSpamButtonClicked.bind(this);
     }
 
     /**
@@ -32,33 +33,7 @@ export class EmailTableActionBar extends React.Component {
         this.props.selectEmails(this.props.emails, e.target.checked, true);
     }
 
-    /**
-     * Called when the user clicks the delete button (when enabled).
-     * @param {object} e The event object
-     */
-    handleDeleteButtonClicked(e) {
-        console.log('handle delete button clicked called');
-    }
-
-    /**
-     * Called when the user clicks the mark as spam button (when enabled).
-     * @param {object} e The event object
-     */
-    handleMarkAsSpamButtonClicked(e) {
-        console.log('handle mark as spam button clicked called');
-    }
-
-    /**
-     * Checks to see if the action bar buttons should be enabled or not.
-     * @returns {bool} True if they should be enabled, false otherwise.
-     */
-    areActionBarButtonsEnabled() {
-        return this.props.selectedEmails.length > 0;
-    }
-
     render() {
-        let isActionBarButtonEnabled = this.areActionBarButtonsEnabled();
-
         return (
             <ActionBar>
                 <div className="EmailTableActionBar">
@@ -69,18 +44,7 @@ export class EmailTableActionBar extends React.Component {
                             onCheck={this.handleSelectAllChecked} />
                     </div>
                     <div className="action-buttons-container">
-                        <ActionBarButton
-                            icon={<MdDelete size={24} />}
-                            text="DELETE"
-                            isEnabled={isActionBarButtonEnabled} 
-                            onClick={this.handleDeleteButtonClicked}
-                        />
-                        <ActionBarButton
-                            icon={<MdReportProblem size={24} />}
-                            text="MARK AS SPAM" 
-                            isEnabled={isActionBarButtonEnabled}
-                            onClick={this.handleMarkAsSpamButtonClicked}
-                        />
+                        {this.props.actionBarButtons}
                     </div>
                     <div className="empty-container"></div>
                 </div>
@@ -91,18 +55,19 @@ export class EmailTableActionBar extends React.Component {
 }
 
 EmailTableActionBar.propTypes = propTypes;
+EmailTableActionBar.defaultProps = defaultProps;
 
 function mapStateToProps(store, ownProps) {
     return {
         isSelectAllChecked: store.email.isSelectAllChecked,
-        selectedEmails: store.email.selectedEmails,
-        emails: ownProps.emails
+        emails: ownProps.emails,
+        actionBarButtons: ownProps.actionBarButtons
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-            selectEmails: EmailActions.selectEmails
+            selectEmails: selectEmails
         },
         dispatch);
 }
