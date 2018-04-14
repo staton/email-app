@@ -1,0 +1,27 @@
+$action-bar-button-padding: .5em;
+
+.ActionBarButton {
+    padding: $action-bar-button-padding;
+    background: none;
+    color: rgba($action-bar-button-color, .33);
+    border: none;
+
+    &:enabled {
+        color: $action-bar-button-color;
+    }
+
+    &:hover:enabled {
+        cursor: pointer;
+        color: rgba($action-bar-button-color, .87);
+    }
+
+    & .action-bar-button-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & svg {
+            padding-right: $action-bar-button-padding / 2;
+        }
+    }
+}

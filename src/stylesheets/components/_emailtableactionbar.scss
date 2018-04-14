@@ -1,29 +1,49 @@
-$checkbox-container-padding-right: $email-table-row-padding;
-$checkbox-container-padding-right-mobile: $email-table-row-padding-mobile;
-
 .EmailTableActionBar {
-    padding: $email-table-row-padding;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: ($email-table-row-padding / 2) $email-table-row-padding;
 
     & .checkbox-container {
 
         & .Checkbox {
-            padding-right: $checkbox-container-padding-right;
+            padding-right: $email-table-row-padding;
             
             &:hover {
                 cursor: pointer;
             }
         }
     }
+
+    & .action-buttons-container {
+
+        & .ActionBarButton {
+            margin: 0 $email-table-row-padding;
+        }
+    }
+
+    & .empty-container {
+        width: 20px;
+    }
 }
 
 @include media($mobile-media) {
+
     .EmailTableActionBar {
-        padding: $email-table-row-padding-mobile;
+        padding: ($email-table-row-padding-mobile / 2) $email-table-row-padding-mobile;
 
         & .checkbox-container {
     
             & .Checkbox {
-                padding-right: $checkbox-container-padding-right-mobile;
+                padding-right: $email-table-row-padding-mobile;
+            }
+        }
+
+        & .action-buttons-container {
+
+            & .ActionBarButton {
+                margin: 0 $email-table-row-padding-mobile;
             }
         }
     }
